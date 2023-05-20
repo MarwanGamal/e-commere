@@ -8,7 +8,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 24px;
 `
 
 export default function Announcement() {
