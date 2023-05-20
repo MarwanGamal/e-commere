@@ -5,7 +5,10 @@ import Product from './Product'
 const Container = styled.div`
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    @media (max-width: 1400px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
     @media (max-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
     }
