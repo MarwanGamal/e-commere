@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { width } from '@mui/system'
+// import { width } from '@mui/system'
 import React from 'react'
 import {mobile, tablet } from "../responsive"
 
@@ -38,10 +38,10 @@ const Input = styled.input`
     margin: 10px 0;
     padding: 10px;
 `
-const Agreement = styled.span`
-    font-size: 12px;
-    margin: 20px 0px;
-`
+// const Agreement = styled.span`
+//     font-size: 12px;
+//     margin: 20px 0px;
+// `
 const Button = styled.button`
     width: 40%;
     border: none;

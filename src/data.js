@@ -1,3 +1,10 @@
+import adiddas from "./imgs/addidas.png"
+import levi from "./imgs/levi's.png"
+import nike from "./imgs/nike.png"
+import puma from "./imgs/puma.png"
+import pullAndBear from "./imgs/pullAndBear.png"
+import underArmor from "./imgs/underArmour.png"
+
 export const sliderItems = [
     {
         id: 1,
@@ -25,64 +32,209 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: "https://images.unsplash.com/photo-1571945153237-4929e783af4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        title: "Shirt collection",
+        img: adiddas
     },
     {
         id: 2,
-        img: "https://images.unsplash.com/photo-1548126032-079a0fb0099d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amFja2V0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title: "Jacket collection",
+        img: nike
     },
     {
         id: 3,
-        img: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGFudHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        title: "Pants collection",
+        img: puma
     },
+    {
+        id: 4,
+        img: underArmor
+    },
+    {
+        id: 5,
+        img: levi
+    },
+    {
+        id: 6,
+        img: pullAndBear
+    }
 ]
 
 export const popularProducts = [
     {
         id: 1,
-        img: "https://images.asos-media.com/products/asos-dark-future-active-relaxed-training-t-shirt-in-tie-dye/203088151-1-taupe",
+        imageUrl: "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-1-ecru",
+        additionalImageUrls:[
+            "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-2",
+            "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-3",
+            "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-4"
+        ],
+        brandName:"ASOS DESIGN",
+        name:"ASOS DESIGN regular fit smart linen shirt with mandarin collar in ecru",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$37.00",
+                value:37
+            }
+        }
     },
     {
         id: 2,
-        img: "https://images.asos-media.com/products/asos-4505-icon-workout-sweatpants-with-tapered-fit-in-black/202492704-1-black",
+        imageUrl: "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-1-navyblazer",
+        additionalImageUrls:[
+            "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-2",
+            "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-3",
+            "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-4"
+        ],
+        brandName:"Jack & Jones",
+        name:"Jack & Jones Essentials short sleeve linen shirt in navy",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$54.00",
+                value:54
+            }
+        }
     },
     {
         id: 3,
-        img: "https://images.asos-media.com/products/converse-chuck-taylor-all-star-hi-lift-canvas-sneakers-in-black/203805468-1-black",
+        imageUrl: "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-1-white",
+        additionalImageUrls:[
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-2",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-3",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-4"
+        ],
+        brandName:"Jack & Jones",
+        name:"Jack & Jones Essentials linen shirt with grandad collar in white",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$58.00",
+                value:58
+            }
+        }
     },
     {
         id: 4,
-        img: "https://images.asos-media.com/products/diesel-s-girl-large-logo-overhead-hoodie-in-black/201142282-1-black",
+        imageUrl: "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-1-navyblazer",
+        additionalImageUrls:[
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-2",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-3",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-4"
+        ],
+        brandName:"Jack & Jones",
+        name:"Jack & Jones Essentials linen shirt in navy",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$58.00",
+                value:58
+            }
+        }
     },
     {
         id: 5,
-        img: "https://images.asos-media.com/products/boardmans-nasa-trucker-baseball-cap-in-navy/202117229-1-navy",
+        imageUrl: "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-1-whitemultistripe",
+        additionalImageUrls:[
+            "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-2",
+            "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-3",
+            "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-4"
+        ],
+        brandName:"Tommy Jeans",
+        name:"Tommy Jeans stripe short sleeve linen shirt in multi",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$100.00",
+                value:100
+            }
+        }
     },
     {
         id: 6,
-        img: "https://images.asos-media.com/products/asos-actual-oversized-hoodie-with-golf-graphic-print-in-teal-mgreen/200949909-1-teal",
+        imageUrl: "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-1-ecru",
+        additionalImageUrls:[
+            "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-2",
+            "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-3",
+            "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-4"
+        ],
+        brandName:"ASOS DESIGN",
+        name:"ASOS DESIGN regular fit smart linen shirt with mandarin collar in ecru",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$37.00",
+                value:37
+            }
+        }
     },
     {
         id: 7,
-        img: "https://images.asos-media.com/products/asos-dark-future-active-relaxed-training-t-shirt-in-tie-dye/203088151-1-taupe",
+        imageUrl: "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-1-navyblazer",
+        additionalImageUrls:[
+            "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-2",
+            "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-3",
+            "images.asos-media.com/products/jack-jones-essentials-short-sleeve-linen-shirt-in-navy/204245682-4"
+        ],
+        brandName:"Jack & Jones",
+        name:"Jack & Jones Essentials short sleeve linen shirt in navy",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$54.00",
+                value:54
+            }
+        }
     },
     {
         id: 8,
-        img: "https://images.asos-media.com/products/asos-4505-icon-workout-sweatpants-with-tapered-fit-in-black/202492704-1-black",
+        imageUrl: "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-1-white",
+        additionalImageUrls:[
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-2",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-3",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-with-grandad-collar-in-white/204245783-4"
+        ],
+        brandName:"Jack & Jones",
+        name:"Jack & Jones Essentials linen shirt with grandad collar in white",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$58.00",
+                value:58
+            }
+        }
     },
     {
         id: 9,
-        img: "https://images.asos-media.com/products/converse-chuck-taylor-all-star-hi-lift-canvas-sneakers-in-black/203805468-1-black",
+        imageUrl: "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-1-navyblazer",
+        additionalImageUrls:[
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-2",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-3",
+            "images.asos-media.com/products/jack-jones-essentials-linen-shirt-in-navy/204246272-4"
+        ],
+        brandName:"Jack & Jones",
+        name:"Jack & Jones Essentials linen shirt in navy",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$58.00",
+                value:58
+            }
+        }
     },
     {
         id: 10,
-        img: "https://images.asos-media.com/products/diesel-s-girl-large-logo-overhead-hoodie-in-black/201142282-1-black",
-    },
-    {
-        id: 11,
-        img: "https://images.asos-media.com/products/boardmans-nasa-trucker-baseball-cap-in-navy/202117229-1-navy",
-    },
+        imageUrl: "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-1-whitemultistripe",
+        additionalImageUrls:[
+            "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-2",
+            "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-3",
+            "images.asos-media.com/products/tommy-jeans-stripe-short-sleeve-linen-shirt-in-multi/204292446-4"
+        ],
+        brandName:"Tommy Jeans",
+        name:"Tommy Jeans stripe short sleeve linen shirt in multi",
+        price:{
+            currency:"USD",
+            current:{
+                text:"$100.00",
+                value:100
+            }
+        }
+    }
 ]

@@ -81,6 +81,7 @@ const Button = styled(Link)`
     text-decoration: none;
     border: 2px solid black;
     color: black;
+    border-radius: 10px; 
 `
 
 export default function Slider() {

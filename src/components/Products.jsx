@@ -3,24 +3,29 @@ import { popularProducts } from '../data'
 import Product from './Product'
 
 const Container = styled.div`
-    padding: 20px;
+    padding: 48px 120px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    @media (max-width: 1400px) {
-      grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    grid-gap: 48px 60px;
+    grid-template-columns: repeat(1, 280px);
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(2, 280px);
     }
-    @media (max-width: 1200px) {
-      grid-template-columns: repeat(4, 1fr);
+
+    @media (min-width: 1260px) {
+      grid-template-columns: repeat(3, 280px);
     }
-    @media (max-width: 900px) {
-      grid-template-columns: repeat(3, 1fr);
+
+    @media (min-width: 1620px) {
+      grid-template-columns: repeat(4, 280px);
     }
     
-    @media (max-width: 700px) {
-      grid-template-columns: repeat(2, 1fr);
+    @media (min-width: 1920px) {
+      grid-template-columns: repeat(5,280px);
     }
-    @media (max-width: 550px) {
-      grid-template-columns: repeat(1, 1fr);
+
+    @media (min-width: 2320px) {
+      grid-template-columns: repeat(6,280px);
     }
     justify-items: center;
     

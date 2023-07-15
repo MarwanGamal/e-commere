@@ -1,15 +1,16 @@
-import { Search, ShoppingCartOutlined } from '@mui/icons-material'
+import { Search, ShoppingCartOutlined, PersonOutline, FavoriteBorderOutlined } from '@mui/icons-material'
 import { Badge } from '@mui/material'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
 import { Link } from 'react-router-dom'
+import svg from '../imgs/searchnormal1.svg'
 
 const Container = styled.div`
     height: 60px;
     ${mobile({ height: "50px" })}
 `
 const Wrapper = styled.div`
-    padding: 10px 20px;
+    padding: 10px 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,13 +22,13 @@ const Left = styled.div`
     display: flex;
     align-items: center;  
 `
-const Language = styled.span`
-    font-size: 14px;
-    cursor: pointer;
+// const Language = styled.span`
+//     font-size: 14px;
+//     cursor: pointer;
 
-    ${mobile({ display: "none" })}
+//     ${mobile({ display: "none" })}
 
-`
+// `
 const Input = styled.input`
     border: none;
     ${mobile({width: "50px"})}
@@ -35,14 +36,17 @@ const Input = styled.input`
 
 const SearchContainer = styled.div`
     border: .5px solid lightgrey;
+    border-radius: 10px 0 0 10px;
     display: flex;
     align-items: center;
     margin-left: 25px;
     padding: 5px;
+    width:80%;
 `
 
 const Center = styled.div`
     flex: 1;
+    display:flex;
 `
 const Logo = styled.h1`
     font-weight: bold;
@@ -67,26 +71,37 @@ const MenuItem = styled(Link)`
     color: black;
 `
 
+const Button = styled.button`
+    background-color: teal;
+    border:none;
+    border-radius: 0 10px 10px 0;
+    padding: 10px; 
+    width: 20%;
+    color: white;
+`
+
 function Navbar() {
   return (
     <Container>
         <Wrapper>
             <Left>
-                <Language>En</Language>
-                <SearchContainer>
-                    <Input placeholder='Search'/>
-                    <Search style={{color: 'grey', fontSize: '16px'}} />
-                </SearchContainer>
+                <Logo>OUTLET</Logo>
             </Left>
             <Center>
-                <Logo>LAMA.</Logo>
+                <SearchContainer>
+                    <Search style={{fontSize: '24px',margin:'0px 7px' }} />
+                    <Input placeholder='Search'/>
+                </SearchContainer>
+                <Button>Search</Button>
             </Center>
             <Right>
-                <MenuItem  to={'/login'}>Register</MenuItem>
-                <MenuItem to={'/register'} >Sign in</MenuItem>
+                <PersonOutline style={{fontSize: '30px',marginLeft:"25px"}} />
+                <FavoriteBorderOutlined style={{fontSize: '26px',marginLeft:"25px"}} />
+                {/* {<MenuItem  to={'/login'}>Sign in</MenuItem>
+                <MenuItem to={'/register'} >Register</MenuItem>} */}
                 <MenuItem to={'/cart'}>
                     <Badge badgeContent={4} color="primary">
-                        <ShoppingCartOutlined />
+                        <ShoppingCartOutlined style={{fontSize: '26px',}}/>
                     </Badge>
                 </MenuItem>
             </Right>

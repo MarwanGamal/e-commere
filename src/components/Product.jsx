@@ -1,6 +1,11 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import {useState} from 'react'
+
+const Container = styled.div`
+
+`
 
 const Info = styled.div`
     opacity: 0;
@@ -15,27 +20,38 @@ const Info = styled.div`
     justify-content: center;
     background: rgba(0,0,0, 0.2);
     transition: all .5s ease;
+    border-radius: 10px;
 `
-const Container = styled.div`
+const Image = styled.img`
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;
+    z-index: 2;
+    object-fit: cover;
+    transition: all .75s ease;
+`
+
+const ImageContainer = styled.div`
     flex: 1;
-    margin: 5px;
-    min-width: 200px;
-    max-width: 500px;
-    height: 350px;
+    border-radius: 10px;
+    max-width: 288px;
+    min-width: 240;
+    justify-self: center;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
     &:hover ${Info}{
         opacity: 1;
     }
+    &:hover ${Image}{
+        transform: scale(1.1);
+        object-fit: cover;
+    }
 `
-const Image = styled.img`
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    object-fit: cover;
-`
+
 const Icon = styled.div`
     width: 40px;
     height: 40px;
@@ -72,21 +88,50 @@ const SearchIcon = styled(Link)`
         cursor: pointer;
     }
 `
+const H1 = styled.h1`
+    margin-top: 24px;
+    color: #D9D9D9;
+    font-size: 24px;
+    font-weight: 900;
+`
+const Description = styled.p`
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 20px;
+`
+const Price = styled.p`
+    margin-top: 12px;
+    color: #D9D9D9;
+    font-weight: 700;
+    font-size: 20px;
+`
+
+
 export default function Product({item}) {
-  return (
+
+    const [ishovered, setIsHovered] = useState(false)
+
+    const description = item.name.slice(item.brandName.length)
+
+    return (
         <Container>
-            <Image src={item.img}/>
-            <Info>
-                <Icon>
-                    <ShoppingCartOutlined />
-                </Icon>
-                <SearchIcon to={'/product'}>
-                    <SearchOutlined />
-                </SearchIcon>
-                <Icon>
-                    <FavoriteBorderOutlined />
-                </Icon>
-            </Info>
+            <ImageContainer onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)}>
+                <Image src={ishovered ? "https://" + item.additionalImageUrls[0] : "https://" + item.imageUrl}/>
+                <Info>
+                    <Icon>
+                        <ShoppingCartOutlined />
+                    </Icon>
+                    <SearchIcon to={'/product'}>
+                        <SearchOutlined />
+                    </SearchIcon>
+                    <Icon>
+                        <FavoriteBorderOutlined />
+                    </Icon>
+                </Info>
+            </ImageContainer>
+            <H1>{item.brandName}</H1>
+            <Description>{description}</Description>
+            <Price>{item.price.currency} {item.price.current.text}</Price>
         </Container>
-  )
+    )
 }
