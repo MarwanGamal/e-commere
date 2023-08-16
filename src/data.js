@@ -1,30 +1,32 @@
-import adiddas from "./imgs/addidas.png"
-import levi from "./imgs/levi's.png"
-import nike from "./imgs/nike.png"
-import puma from "./imgs/puma.png"
-import pullAndBear from "./imgs/pullAndBear.png"
-import underArmor from "./imgs/underArmour.png"
+import colombia from "./imgs/colombiaLogo.png"
+import frenchConnection from "./imgs/french.png"
+import selectedHomme from "./imgs/selectedHomme.webp"
+import harryBrown from "./imgs/HB-Logo-navy-crop_360x.avif"
+import onlySons from "./imgs/onlyAndSonsLogo.png"
+import jackAndJones from "./imgs/jackAndJones.png"
+import sportswear from "./imgs/sportswear2.png"
+import suit from "./imgs/suit.png"
 
 export const sliderItems = [
     {
-        id: 1,
+        id: "tshirt",
         img: "https://www.pngmart.com/files/22/Printed-T-Shirt-PNG-Isolated-HD.png",
-        title: "Summer Sale",
-        desc: "Don't compromise on style! get flat 30% off for new arrivals",
+        title: "Summer Sale ! get up to 30% sale on T-shirts",
+        desc: "",
         color: "#f5fafd"
     },
     {
-        id: 2,
-        img: "https://www.pngmart.com/files/1/Mens-Fashion-Transparent-PNG.png",
-        title: "Autumn collection",
-        desc: "Don't compromise on style! get flat 30% off for new arrivals",
+        id: "sportswear",
+        img: sportswear,
+        title: "get up to 40% off new arrivals for sportswear ",
+        desc: "",
         color: "#fcf1ed"
     },
     {
-        id: 3,
-        img: "https://www.pngmart.com/files/1/Mens-Fashion-PNG-Clipart.png",
-        title: "Popular Sale",
-        desc: "Don't compromise on style! get flat 30% off for new arrivals",
+        id: "suits",
+        img: suit,
+        title: "Don't compromise on style! get 50% off suits",
+        desc: "",
         color: "#fbf0f4"
     },
 ]
@@ -32,27 +34,27 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: adiddas
+        img: colombia  
     },
     {
         id: 2,
-        img: nike
+        img: frenchConnection 
     },
     {
         id: 3,
-        img: puma
+        img: harryBrown 
     },
     {
         id: 4,
-        img: underArmor
+        img: jackAndJones 
     },
     {
         id: 5,
-        img: levi
+        img: onlySons 
     },
     {
         id: 6,
-        img: pullAndBear
+        img: selectedHomme
     }
 ]
 

@@ -41,6 +41,7 @@ const Wrapper = styled.div`
 const Slide = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
     background-color: ${props=> props.bg};
@@ -48,7 +49,9 @@ const Slide = styled.div`
 `
 const ImageContainer = styled.div`
     height: 100%;
-    flex: 1;
+    // flex: 1;
+    margin-right: 60px;
+    margin-top: 42px;
     text-align: center;
 `
 const Image = styled.img`
@@ -56,8 +59,9 @@ const Image = styled.img`
 `
 
 const InfoContainer = styled.div`
-    flex: 1;
-    padding: 50px;
+    // flex: 1;
+    // padding: 50px;
+    max-width: 50%;
     margin-right: 20px;
 `
 const Title = styled.h1`
@@ -75,7 +79,7 @@ const Description = styled.p`
 `
 const Button = styled(Link)`
     padding: 10px;
-    font-size: 20px;
+    font-size: 36px;
     background-color: transparent;
     cursor: pointer;
     text-decoration: none;
@@ -108,11 +112,10 @@ export default function Slider() {
                         <InfoContainer>
                             <Title>{item.title}</Title>
                             <Description>{item.desc}</Description>
-                            <Button to={'productList'}>Show now</Button>
+                            <Button to={'productList'} state={{id: item.id}}>Show now</Button>
                         </InfoContainer>
                     </Slide>
-                )
-                 )
+                )) 
             }
             
         </Wrapper>

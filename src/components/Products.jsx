@@ -31,13 +31,12 @@ const Container = styled.div`
     
 `
 
-export default function Products() {
+export default function Products({page, items = popularProducts}) {
 
-  const products = popularProducts.map(item=>(
-    <Product item={item} key={item.id} />
+  const products = items.map(item=>(
+    <Product item={item} key={item.id} page={page} />
   ))
 
-  console.log(products)
   return (
     <div>
         <Container>

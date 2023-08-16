@@ -107,16 +107,21 @@ const Price = styled.p`
 `
 
 
-export default function Product({item}) {
+export default function Product({item, page}) {
 
     const [ishovered, setIsHovered] = useState(false)
-
+    
     const description = item.name.slice(item.brandName.length)
+
+    let image = page === "home" ?
+    <Image src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' style={{backgroundImage: `url(${ishovered ? "https://" + item.additionalImageUrls[0] : "https://" + item.imageUrl})`, border: "none"}}/> :
+    <Image src = {"https://" + item.imageUrl} style={{ border: "none"}}/>
+
 
     return (
         <Container>
             <ImageContainer onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)}>
-                <Image src={ishovered ? "https://" + item.additionalImageUrls[0] : "https://" + item.imageUrl}/>
+                {image}
                 <Info>
                     <Icon>
                         <ShoppingCartOutlined />

@@ -1,106 +1,137 @@
 import styled from '@emotion/styled'
-import { Add, Remove } from '@mui/icons-material'
+import { Add, Remove, FavoriteBorderOutlined, LocalShippingOutlined } from '@mui/icons-material'
 import React from 'react'
 import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import {mobile, tablet} from '../responsive'
+import ControlledAccordions from '../components/Accordion'
+import Products from '../components/Products'
 
 const Container = styled.div`
 
 `
 const Wrapper = styled.div`
-    padding: 50px;
+    padding: 60px 120px;
     display: flex;
+    align-items: start;
     ${mobile({padding:"10px", flexDirection:"column"})}
     ${tablet({padding:"20px"})}
 `
-const ImageContainer = styled.div`
+const ImagesContainer = styled.div`
+    display: flex;
     flex: 1;
 `
 const Image = styled.img`
     width: 100%;
-    height: 90hv;
+    height: 100%;
+    border-radius: 5px;
     ${tablet({height:"50vh"})}
     ${mobile({height:"40vh"})}
     object-fit: cover;
 `
+const ImageList = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+`
+const ImgContainer = styled.div`
+    width: 314px;
+    height: 400px;
+    margin-bottom: 24px;
+    margin-right: 24px;
+`
+
 const InfoContainer = styled.div`
     flex: 1;
-    padding: 0px 50px;
     ${tablet({padding:"0 0 20px 20px"})}
     ${mobile({padding:"10px"})}
 `
-const Title = styled.div`
-    font-weight: 200;
+const ProductName = styled.div`
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 12px;
 `
-const Desc = styled.p`
-    margin: 20px 0px;
-`
+
 const Price = styled.span`
     font-weight: 100;
-    font-size: 40px;
+    font-size: 24px;
+`
+const ProductInfo = styled.div`
+    margin-top: 24px ;
+`
+const Info = styled.p`
+    font-size: 18px;
+    margin: 12px 0px;
 `
 
 const FilterContainer = styled.div`
-    width: 50%;
-    margin: 20px 20px 20px 0;
-    display: flex;
-    justify-content: space-between;
+    margin-top: 36px;
     ${mobile({width:"100%",margin:"20px 0"})}
 `
 const Filter = styled.div`
     display: flex;
-    align-items: center;
 `
-const FilterTitle = styled.span`
-    font-size: 25px;
-    font-weight: 200;
+const FilterTitle = styled.h2`
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
 `
 const FilterColor = styled.div`
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
     background-color: ${props => props.color};
-    margin: 0 5px;
+    margin-right: 24px;
     cursor: pointer;
 `
-const FilterSize = styled.select`
-    margin-left: 10px;
-    padding: 5px;
 
-`
-const FilterSizeOption = styled.option`
-    
+
+const FilterSize = styled.div`
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 24px;
+    cursor: pointer;
+    border: 1px solid #CCCCCC;
 `
 const AddContainer = styled.div`
-    width: 50%;
+    margin: 36px 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     ${tablet({width:"100%"})}
     ${mobile({width:"100%"})}
 `
 const AmountContainer = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    width: 192px;
     font-weight: 700;
+    border: 2px solid #afafaf;
+    padding: 10px;
 `
 const Amount = styled.span`
-    width: 30px;
-    height: 30px;
+    font-size: 24px;
     border-radius: 10px;
-    border: 1px solid teal;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 5px;
 `
 const Button = styled.button`
-    padding: 15px;
-    border: 2px solid teal;
-    background-color: white;
+    padding: 10px;
+    font-size: 24px;
+    margin-left: 24px;
+    width: 560px;
+    background-color: #afafaf;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
     font-weight: 500;
 
@@ -108,36 +139,84 @@ const Button = styled.button`
         background-color: #f8f4f4;
     }
 `
+const ShippingDetails = styled.div`
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    color: #afafaf;
+
+`
+const ProductDetails = styled.div`
+    margin-top: 48px;
+
+`
+const PeopleAlsoLiked = styled.div`
+    margin-top: 72px;
+`
+const Header = styled.div`
+    font-weight: bold;
+    font-size: 40px;
+    display: inline-block;
+    border-bottom: 5px solid black;
+    margin-bottom: -5px;
+    border-radius: 5px;
+    padding-bottom: 26.5px;
+`
+const Divider = styled.div`
+    border-bottom: 5px solid #DBDADA;  
+    margin: 10px 120px;
+    display:flex;
+    justify-content: center;
+    border-radius: 5px;
+`
+
 const Product = () => {
     return (
         <Container>
             <Navbar />
             <Announcement />
             <Wrapper>
-                <ImageContainer>
-                    <Image src="http://i.ibb.co/S6qMxwr/jean.jpg" />
-                </ImageContainer>
+                <ImagesContainer>
+                    <ImageList>
+                        <ImgContainer>
+                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-1-ecru"} />
+                        </ImgContainer>
+                        <ImgContainer>
+                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-2"}  />
+                        </ImgContainer>
+                        <ImgContainer>
+                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-3"} />
+                        </ImgContainer>
+                        <ImgContainer>
+                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-4"} />
+                        </ImgContainer>
+                    </ImageList>
+                </ImagesContainer>
                 <InfoContainer>
-                    <Title>Denim Jumpsuit</Title>
-                    <Desc>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo dicta repellendus laudantium quam rerum commodi sed dignissimos neque alias dolores nulla doloribus odio numquam officia quis, reiciendis fugit ullam enim veritatis saepe. Sequi architecto itaque cupiditate assumenda. Ab neque laudantium expedita placeat, necessitatibus atque saepe nemo consectetur ad quos praesentium? </Desc>
-                    <Price>$ 20</Price>
+                    <ProductName>Essentials short sleeve linen shirt in navy</ProductName>
+                    <Price>USD $20</Price>
+                    <ProductInfo>
+                        <Info>Type:</Info>
+                        <Info>Availability:</Info>
+                        <Info>Manufacture:</Info>
+                    </ProductInfo>
                     <FilterContainer>
+                        <FilterTitle>Color:</FilterTitle>
                         <Filter>
-                            <FilterTitle>Color:</FilterTitle>
                             <FilterColor color="black" ></FilterColor>
                             <FilterColor color="blue" ></FilterColor>
                             <FilterColor color="grey" ></FilterColor>
                         </Filter>
+                        </FilterContainer>
+                        <FilterContainer>
+                        <FilterTitle>Size:</FilterTitle>
                         <Filter>
-                            <FilterTitle>Size:</FilterTitle>
-                            <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
-                                <FilterSizeOption>S</FilterSizeOption>
-                                <FilterSizeOption>M</FilterSizeOption>
-                                <FilterSizeOption>L</FilterSizeOption>
-                                <FilterSizeOption>xl</FilterSizeOption>
-                                <FilterSizeOption>xxl</FilterSizeOption>
-                            </FilterSize>
+                            <FilterSize>XS</FilterSize>
+                            <FilterSize>S</FilterSize>
+                            <FilterSize>M</FilterSize>
+                            <FilterSize>L</FilterSize>
+                            <FilterSize>xl</FilterSize>
+                            <FilterSize>xxl</FilterSize>
                         </Filter>
                     </FilterContainer>
                     <AddContainer>
@@ -147,9 +226,23 @@ const Product = () => {
                             <Add />
                         </AmountContainer>
                         <Button>ADD TO CART</Button>
+                        <FavoriteBorderOutlined style={{color: "grey",fontSize: '26px',marginLeft:"24px"}} />
                     </AddContainer>
+                    <ShippingDetails>
+                        <LocalShippingOutlined style={{color: "#afafaf",fontSize: '26px',marginRight:"24px"}}/>
+                        Shipping Within 3 to 5 work days
+                    </ShippingDetails>
+                    <ProductDetails>
+                        <ControlledAccordions />
+                    </ProductDetails>
                 </InfoContainer>
             </Wrapper>
+            <PeopleAlsoLiked>
+                <Divider>
+                    <Header>Customers Also Viewed</Header>
+                </Divider>
+                <Products page={"product"}/>
+            </PeopleAlsoLiked>
             <Newsletter />
             <Footer />
         </Container>

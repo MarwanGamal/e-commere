@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { mobile, tablet } from "../responsive"
+import Image from "./Image"
 
 
 const Container = styled.div`
-    margin: 15px;
+    margin: 15px 25px;
     width: 216px;
     height: 216px;
     background: #D9D9D9;
@@ -13,31 +14,9 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     ${tablet({height: "50vh"})}
-`
-const Image = styled.img`
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
     ${mobile({height: "30vh"})}
-    `
-// const Info = styled.div`
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-// `
-// const Title = styled.h1`
-//     margin-bottom: 20px;
-//     -webkit-text-fill-color: white; 
-//     -webkit-text-stroke-width: .5px;
-//     -webkit-text-stroke-color: black;
-//     ${tablet({fontSize: "24px"})}
-// `
+`
+
 const Button = styled(Link)`
     border: none;
     padding: 10px;
@@ -51,7 +30,7 @@ const Button = styled(Link)`
 export default function CategoryItem({item}) {
   return (
     <Container>
-        <Image src={item.img}/>
+        <Image source={item.img}/>
     </Container>
   )
 }

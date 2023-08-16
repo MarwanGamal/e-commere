@@ -31,6 +31,8 @@ const Left = styled.div`
 // `
 const Input = styled.input`
     border: none;
+    width: 100%;
+    padding: 8px;
     ${mobile({width: "50px"})}
 `
 
@@ -40,7 +42,6 @@ const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     margin-left: 25px;
-    padding: 5px;
     width:80%;
 `
 
