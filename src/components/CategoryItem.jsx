@@ -8,13 +8,13 @@ const Container = styled.div`
     margin: 15px 25px;
     width: 216px;
     height: 216px;
-    background: #D9D9D9;
+    background: #DDB698;
     border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
-    ${tablet({height: "50vh"})}
-    ${mobile({height: "30vh"})}
+    ${tablet({width:"180px", height:"180px"})}
+    ${mobile({height: "30vh",width:"108px", height:"108px",margin:" 12px 12px"})}
 `
 
 const Button = styled(Link)`

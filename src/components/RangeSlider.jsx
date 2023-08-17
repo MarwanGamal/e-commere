@@ -4,6 +4,11 @@ import Slider from '@mui/material/Slider';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from 'styled-components';
 
+const Container = styled.div`
+  background-color: #DDB698;
+  margin: 0 auto;
+`
+
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -17,7 +22,7 @@ const theme = createTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#9c9c9c',
+      main: '#1F304C',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     }
@@ -53,29 +58,31 @@ export default function RangeSlider() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box sx={{ width: 200 }}>
-        <FlexContainer>
-          <Text>min</Text>
-          <Text>max</Text>
-        </FlexContainer>
-        <Slider
-          min={18}
-          max={120}
-          getAriaLabel={() => 'Minimum distance shift'}
-          value={value}
-          onChange={handleChange}
-          valueLabelDisplay="off"
-          getAriaValueText={valuetext}
-          disableSwap
-          color='primary'
-        />
-        <FlexContainer>  
-          <Text>${value[0]}</Text>
-          <Text>${value[1]}</Text>
-        </FlexContainer>
-      </Box>  
-    </ThemeProvider>
+    <Container>
+      <ThemeProvider theme={theme}>
+        <Box sx={{ width: 200 }}>
+          <FlexContainer>
+            <Text>min</Text>
+            <Text>max</Text>
+          </FlexContainer>
+          <Slider
+            min={18}
+            max={120}
+            getAriaLabel={() => 'Minimum distance shift'}
+            value={value}
+            onChange={handleChange}
+            valueLabelDisplay="off"
+            getAriaValueText={valuetext}
+            disableSwap
+            color='primary'
+          />
+          <FlexContainer>  
+            <Text>${value[0]}</Text>
+            <Text>${value[1]}</Text>
+          </FlexContainer>
+        </Box>  
+      </ThemeProvider>
+    </Container>
     
   );
 }

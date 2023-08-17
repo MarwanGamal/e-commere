@@ -4,16 +4,18 @@ import { mobile, tablet } from '../responsive'
 
 const Container = styled.div`
     display: flex;
+    background-color: #1F304C;
+    color: white;
     ${mobile({flexDirection: "column"})}
 `
 const Left = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 42px 120px 0 120px;
 `
 const Logo = styled.h1`
-
+    color: #DDB698;
 `
 
 const Desc = styled.p`
@@ -45,6 +47,7 @@ const Center = styled.div`
 `
 const Title = styled.h3`
     margin-bottom: 30px;
+    color: #DDB698;
 `
 
 const List = styled.ul`
@@ -81,7 +84,7 @@ const Footer = () => {
   return (
     <Container>
         <Left>
-            <Logo>LAMA.</Logo>
+            <Logo>OUTLET</Logo>
             <Desc>
                 There are many variations of passages of Lorem Ipusm available, but the majority have suffered alteration in some form, by injected humor, or randomized words which don't look even slightly believable.
             </Desc>

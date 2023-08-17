@@ -10,21 +10,21 @@ import suit from "./imgs/suit.png"
 export const sliderItems = [
     {
         id: "tshirt",
-        img: "https://www.pngmart.com/files/22/Printed-T-Shirt-PNG-Isolated-HD.png",
+        img: "https://cdn.discordapp.com/attachments/624867491109142538/1141755118916743168/fdc0e91e-3cc1-4b23-9f96-1a495fc4c980.png",
         title: "Summer Sale ! get up to 30% sale on T-shirts",
         desc: "",
         color: "#f5fafd"
     },
     {
         id: "sportswear",
-        img: sportswear,
-        title: "get up to 40% off new arrivals for sportswear ",
+        img: "https://cdn.discordapp.com/attachments/624867491109142538/1141764377666670622/a0b022c3-2d09-43d3-9216-63ec6e2d34fb.png",
+        title: "get up to 40% off new arrivals for shoes ",
         desc: "",
         color: "#fcf1ed"
     },
     {
         id: "suits",
-        img: suit,
+        img: "https://cdn.discordapp.com/attachments/624867491109142538/1141761726396764200/905c94ac-6985-44e8-b92d-16098dcbd054.png",
         title: "Don't compromise on style! get 50% off suits",
         desc: "",
         color: "#fbf0f4"
@@ -34,26 +34,32 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
+        brandName: "Columbia",
         img: colombia  
     },
     {
         id: 2,
+        brandName: "French Connection",
         img: frenchConnection 
     },
     {
         id: 3,
+        brandName: "Harry Brown",
         img: harryBrown 
     },
     {
         id: 4,
+        brandName: "Jack & Jones",
         img: jackAndJones 
     },
     {
         id: 5,
+        brandName: "Only & Sons",
         img: onlySons 
     },
     {
         id: 6,
+        brandName: "Selected Homme",
         img: selectedHomme
     }
 ]

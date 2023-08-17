@@ -2,7 +2,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material"
 import { useState } from "react"
 import styled from "styled-components"
 import { sliderItems } from "../data"
-import { mobile, tablet } from "../responsive"
+import { mobile, tablet, laptop } from "../responsive"
 import { Link } from "react-router-dom"
 
 const Container = styled.div`
@@ -11,7 +11,7 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({display: "none"})}
+    ${mobile({})}
     ${tablet({height: "60vh"})}
 `
 const Arrow = styled.div`
@@ -40,12 +40,14 @@ const Wrapper = styled.div`
 `
 const Slide = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
     width: 100vw;
     height: 100vh;
-    background-color: ${props=> props.bg};
-    ${tablet({height: "60vh"})}
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(${props=> props.bg});
+    background-position: center;
+    
 `
 const ImageContainer = styled.div`
     height: 100%;
@@ -61,12 +63,18 @@ const Image = styled.img`
 const InfoContainer = styled.div`
     // flex: 1;
     // padding: 50px;
-    max-width: 50%;
+    margin: 280px 240px;
+    max-width: 34%;
     margin-right: 20px;
+    ${mobile({maxWidth: "65%"})}
+    ${tablet({maxWidth: "65%",margin:" 60px 240px"})}
+    ${laptop({maxWidth: "50%", margin:"180px 120px"})}
 `
 const Title = styled.h1`
     text-transform: uppercase;
+    color: #1F304D;
     font-size: 70px;
+    -webkit-text-stroke: 1.5px #DDB698;
     ${tablet({fontSize: "40px"})}
 `
 const Description = styled.p`
@@ -75,16 +83,23 @@ const Description = styled.p`
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 3px;
+    
     ${tablet({fontSize: "18px"})}
 `
 const Button = styled(Link)`
-    padding: 10px;
+    padding: 15px 0;
+    display: flex;
+    algin-items: center;
+    max-width: 90%;
+    justify-content: center;
     font-size: 36px;
-    background-color: transparent;
+    font-weight: bold;
+    background-color: #1F304D;
     cursor: pointer;
     text-decoration: none;
-    border: 2px solid black;
-    color: black;
+    // border: 2px solid black;
+    color: #FAF7F5;
+    
     border-radius: 10px; 
 `
 
@@ -105,10 +120,7 @@ export default function Slider() {
         <Wrapper slideIndex={slideIndex}>
             {
                 sliderItems.map(item=>(
-                    <Slide bg={item.color} key={item.id}>
-                        <ImageContainer> 
-                            <Image src={item.img} />
-                        </ImageContainer>
+                    <Slide bg={item.img} key={item.id}>
                         <InfoContainer>
                             <Title>{item.title}</Title>
                             <Description>{item.desc}</Description>

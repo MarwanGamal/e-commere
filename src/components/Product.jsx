@@ -90,18 +90,20 @@ const SearchIcon = styled(Link)`
 `
 const H1 = styled.h1`
     margin-top: 24px;
-    color: #D9D9D9;
+    color: #101826;
     font-size: 24px;
+    opacity: .3;
     font-weight: 900;
 `
 const Description = styled.p`
     margin-top: 12px;
     font-weight: 700;
+    color: #1F304C;
     font-size: 20px;
 `
 const Price = styled.p`
     margin-top: 12px;
-    color: #D9D9D9;
+    color: #DDB698;
     font-weight: 700;
     font-size: 20px;
 `
@@ -117,7 +119,6 @@ export default function Product({item, page}) {
     <Image src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' style={{backgroundImage: `url(${ishovered ? "https://" + item.additionalImageUrls[0] : "https://" + item.imageUrl})`, border: "none"}}/> :
     <Image src = {"https://" + item.imageUrl} style={{ border: "none"}}/>
 
-
     return (
         <Container>
             <ImageContainer onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)}>
@@ -126,7 +127,11 @@ export default function Product({item, page}) {
                     <Icon>
                         <ShoppingCartOutlined />
                     </Icon>
-                    <SearchIcon to={'/product'}>
+                    <SearchIcon 
+                        onClick={() =>{ if(window.location.href === 'http://localhost:3000/e-commere#/product') window.location.reload()}} 
+                        to={'/product'}
+                        state={{url: item.url}}
+                    >
                         <SearchOutlined />
                     </SearchIcon>
                     <Icon>

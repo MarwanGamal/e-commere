@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { popularProducts } from '../data'
+import { categories } from '../data'
 import Product from './Product'
 
 const Container = styled.div`
@@ -31,11 +31,13 @@ const Container = styled.div`
     
 `
 
-export default function Products({page, items = popularProducts}) {
+export default function Products({page, items}) {
 
-  const products = items.map(item=>(
+  const products = items ? 
+  items.map(item=>(
     <Product item={item} key={item.id} page={page} />
-  ))
+  )):
+  <h1>Loading</h1>
 
   return (
     <div>

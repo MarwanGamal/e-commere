@@ -1,16 +1,19 @@
 import styled from "styled-components"
 import { categories } from "../data"
 import CategoryItem from "./CategoryItem"
-import { laptop, mobile } from "../responsive"
+import { laptop, mobile, tablet } from "../responsive"
 import CategoryFilter from "./CategoryFilter"
 
 const Container = styled.div`
-    background: ${props => props.$page === "home" ? "" : "#cccccc"};
+    background: ${props => props.$page === "home" ? "" : "#DDB698"};
     display: flex;
-    padding: 20px 170px;
+    padding: 36px 120px 0;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     ${laptop({flexWrap: "wrap", justifyContent:"center"})}
+    ${tablet({padding:" 36px 42px 0"})}
+    ${mobile({padding:" 24px 12px 0"})}
 `
 
 export default function Categories({page}) {

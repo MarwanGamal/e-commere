@@ -1,20 +1,23 @@
 import { Search, ShoppingCartOutlined, PersonOutline, FavoriteBorderOutlined } from '@mui/icons-material'
 import { Badge } from '@mui/material'
 import styled from 'styled-components'
-import { mobile } from '../responsive'
+import { mobile, noteBook, tablet } from '../responsive'
 import { Link } from 'react-router-dom'
 import svg from '../imgs/searchnormal1.svg'
 
 const Container = styled.div`
-    height: 60px;
+    background-color: #1F304C;
+    border-bottom: 5px solid #DDB698;
     ${mobile({ height: "50px" })}
 `
 const Wrapper = styled.div`
-    padding: 10px 120px;
+    height: 72px;
+    padding: 0 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    ${mobile({ padding: "10px 0" })}
+    ${tablet({ padding: "0 60px" })}
+    ${mobile({ padding: "10px 0",height: "24px"})}
 `
 
 const Left = styled.div`
@@ -33,24 +36,27 @@ const Input = styled.input`
     border: none;
     width: 100%;
     padding: 8px;
+    outline: none;
     ${mobile({width: "50px"})}
 `
 
 const SearchContainer = styled.div`
     border: .5px solid lightgrey;
-    border-radius: 10px 0 0 10px;
+    border-radius: 5px 0 0 5px;
     display: flex;
+    background-color: white;
     align-items: center;
     margin-left: 25px;
     width:80%;
 `
 
 const Center = styled.div`
-    flex: 1;
+    flex: 2;
     display:flex;
 `
 const Logo = styled.h1`
     font-weight: bold;
+    color: #DDB698;
     text-align: center;
     ${mobile({fontSize: "24px"})}
 `
@@ -60,7 +66,7 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    ${mobile({justifyContent: "center", flex:"2"})}
+    ${mobile({display:"none"})}
 `
 
 const MenuItem = styled(Link)`
@@ -73,9 +79,9 @@ const MenuItem = styled(Link)`
 `
 
 const Button = styled.button`
-    background-color: teal;
+    background-color: #DDB698;
     border:none;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 5px 5px 0;
     padding: 10px; 
     width: 20%;
     color: white;
@@ -90,19 +96,19 @@ function Navbar() {
             </Left>
             <Center>
                 <SearchContainer>
-                    <Search style={{fontSize: '24px',margin:'0px 7px' }} />
+                    <Search style={{fontSize: '24px',margin:'0px 7px'}} />
                     <Input placeholder='Search'/>
                 </SearchContainer>
                 <Button>Search</Button>
             </Center>
             <Right>
-                <PersonOutline style={{fontSize: '30px',marginLeft:"25px"}} />
-                <FavoriteBorderOutlined style={{fontSize: '26px',marginLeft:"25px"}} />
+                <PersonOutline style={{fontSize: '30px',marginLeft:"25px",color:"#DDB698"}} />
+                <FavoriteBorderOutlined style={{fontSize: '26px',marginLeft:"25px",color:"#DDB698"}} />
                 {/* {<MenuItem  to={'/login'}>Sign in</MenuItem>
                 <MenuItem to={'/register'} >Register</MenuItem>} */}
                 <MenuItem to={'/cart'}>
                     <Badge badgeContent={4} color="primary">
-                        <ShoppingCartOutlined style={{fontSize: '26px',}}/>
+                        <ShoppingCartOutlined style={{fontSize: '26px',color:"#DDB698"}}/>
                     </Badge>
                 </MenuItem>
             </Right>

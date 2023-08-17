@@ -35,8 +35,7 @@ export default function Home() {
 
   return (
     <div style={{boxSizing: "border-box"}}>
-        <Navbar />
-        <Announcement />
+        <Navbar />  
         <Slider />
         <Categories page={"home"}/>
         <Divider>

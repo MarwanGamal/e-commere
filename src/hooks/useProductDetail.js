@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 
-export default function useProductBySearch(query){
+export default function useProductDetail(productUrl){
 
     const [data, setData] = useState()
 
@@ -9,12 +9,11 @@ export default function useProductBySearch(query){
         let ignore = false
         const options = {
           method: 'GET',
-          url: 'https://asos-com1.p.rapidapi.com/products/search',
+          url: 'https://asos-com1.p.rapidapi.com/products/detail',
           params: {
-            q: query,
+            url: `${productUrl}`,
             country_code: 'GB',
-            currency: 'GBP',
-            filters: 'brand=15059,224,14159,15003,14441,12461&floor=1001'
+            currency: 'GBP'
           },
           headers: {
             'X-RapidAPI-Key': '457a1eabcamshdcf8719201ec04dp181f8bjsned0bf4baea2d',
@@ -43,3 +42,4 @@ export default function useProductBySearch(query){
       
       return data
 }
+

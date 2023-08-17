@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Add, Remove, FavoriteBorderOutlined, LocalShippingOutlined } from '@mui/icons-material'
-import React from 'react'
+import {useEffect,useState} from 'react'
 import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -8,6 +8,9 @@ import Newsletter from '../components/Newsletter'
 import {mobile, tablet} from '../responsive'
 import ControlledAccordions from '../components/Accordion'
 import Products from '../components/Products'
+import { useLocation } from 'react-router-dom'
+import useProductDetail from '../hooks/useProductDetail'
+import useProductSimilarities from '../hooks/useProductSimilarities'
 
 const Container = styled.div`
 
@@ -51,12 +54,14 @@ const InfoContainer = styled.div`
 const ProductName = styled.div`
     font-weight: 700;
     font-size: 40px;
+    color: #26201A;
     margin-bottom: 12px;
 `
 
 const Price = styled.span`
     font-weight: 100;
     font-size: 24px;
+    color: #DDB698;
 `
 const ProductInfo = styled.div`
     margin-top: 24px ;
@@ -72,6 +77,7 @@ const FilterContainer = styled.div`
 `
 const Filter = styled.div`
     display: flex;
+    flex-wrap: wrap;
 `
 const FilterTitle = styled.h2`
     font-size: 20px;
@@ -98,7 +104,7 @@ const FilterSize = styled.div`
     border-radius: 50%;
     margin-right: 24px;
     cursor: pointer;
-    border: 1px solid #CCCCCC;
+    border: 2px solid #CCCCCC;
 `
 const AddContainer = styled.div`
     margin: 36px 0;
@@ -114,13 +120,14 @@ const AmountContainer = styled.div`
     border-radius: 5px;
     width: 192px;
     font-weight: 700;
-    border: 2px solid #afafaf;
+    border: 2px solid #1F304C;
     padding: 10px;
 `
 const Amount = styled.span`
     font-size: 24px;
     border-radius: 10px;
     display: flex;
+    color: #DDB698;
     align-items: center;
     justify-content: center;
 `
@@ -129,7 +136,8 @@ const Button = styled.button`
     font-size: 24px;
     margin-left: 24px;
     width: 560px;
-    background-color: #afafaf;
+    color: #1F304C;
+    background-color: #DDB698;
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -171,34 +179,43 @@ const Divider = styled.div`
 `
 
 const Product = () => {
+
+    const location = useLocation()
+    const {url} = location.state
+    const data = useProductDetail(url)
+    const similarItems = useProductSimilarities(url)
+    console.log(similarItems)
+    if(data){
+        var productName = data.name.slice(data.brandName.length)
+        var price = data.price[0].productPrice.current.text        
+        var available 
+        if(data.price[0].isInStock){
+            available = "In stock"
+        }else{
+            available = "out of stock"
+        }
+    }
     return (
-        <Container>
+        <Container >
             <Navbar />
-            <Announcement />
+            {data ? 
             <Wrapper>
                 <ImagesContainer>
                     <ImageList>
-                        <ImgContainer>
-                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-1-ecru"} />
-                        </ImgContainer>
-                        <ImgContainer>
-                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-2"}  />
-                        </ImgContainer>
-                        <ImgContainer>
-                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-3"} />
-                        </ImgContainer>
-                        <ImgContainer>
-                            <Image src={"http://" + "images.asos-media.com/products/asos-design-regular-fit-smart-linen-shirt-with-mandarin-collar-in-ecru/203632617-4"} />
-                        </ImgContainer>
+                        {data.images.map(img =>(
+                            <ImgContainer>
+                                <Image src={img.url} />
+                            </ImgContainer>
+                        ))}
                     </ImageList>
                 </ImagesContainer>
                 <InfoContainer>
-                    <ProductName>Essentials short sleeve linen shirt in navy</ProductName>
-                    <Price>USD $20</Price>
+                    <ProductName>{productName}</ProductName>
+                    <Price>{price}</Price>
                     <ProductInfo>
-                        <Info>Type:</Info>
-                        <Info>Availability:</Info>
-                        <Info>Manufacture:</Info>
+                        <Info>Type: {data.productType.name}</Info>
+                        <Info>Availability: {available}</Info>
+                        <Info>Manufacture: {data.brandName}</Info>
                     </ProductInfo>
                     <FilterContainer>
                         <FilterTitle>Color:</FilterTitle>
@@ -211,37 +228,35 @@ const Product = () => {
                         <FilterContainer>
                         <FilterTitle>Size:</FilterTitle>
                         <Filter>
-                            <FilterSize>XS</FilterSize>
-                            <FilterSize>S</FilterSize>
-                            <FilterSize>M</FilterSize>
-                            <FilterSize>L</FilterSize>
-                            <FilterSize>xl</FilterSize>
-                            <FilterSize>xxl</FilterSize>
+                            {data.variants.map( variant =>(
+                                <FilterSize>{(variant.size.split("-"))[0]}</FilterSize>
+                            ))}
                         </Filter>
                     </FilterContainer>
                     <AddContainer>
                         <AmountContainer>
-                            <Remove />
+                            <Remove style={{color:"497DAA"}}/>
                             <Amount>1</Amount>
-                            <Add />
+                            <Add style={{color:"497DAA"}}/>
                         </AmountContainer>
                         <Button>ADD TO CART</Button>
-                        <FavoriteBorderOutlined style={{color: "grey",fontSize: '26px',marginLeft:"24px"}} />
+                        <FavoriteBorderOutlined style={{color: "DDB698",fontSize: '26px',marginLeft:"24px", padding:"10px", border:"2px solid #1F304C", borderRadius:"5px"}} />
                     </AddContainer>
                     <ShippingDetails>
                         <LocalShippingOutlined style={{color: "#afafaf",fontSize: '26px',marginRight:"24px"}}/>
                         Shipping Within 3 to 5 work days
                     </ShippingDetails>
                     <ProductDetails>
-                        <ControlledAccordions />
+                        <ControlledAccordions description={data.description}/>
                     </ProductDetails>
                 </InfoContainer>
-            </Wrapper>
+            </Wrapper>:
+            <h1>Loading</h1>}
             <PeopleAlsoLiked>
                 <Divider>
                     <Header>Customers Also Viewed</Header>
                 </Divider>
-                <Products page={"product"}/>
+                {similarItems && <Products items={similarItems} page={"product"}/>}
             </PeopleAlsoLiked>
             <Newsletter />
             <Footer />

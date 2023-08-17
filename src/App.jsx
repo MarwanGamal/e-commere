@@ -26,7 +26,8 @@ const router = createHashRouter([
   },
   {
     path: "/product",
-    element: <Product />,
+    element: <Product key={Math.random()}/>,
+    
   },
   {
     path: "/cart",

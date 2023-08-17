@@ -17,18 +17,25 @@ const Description = styled(Typography)`
 `
 const AccordionContainer = styled(Accordion)`
     border-radius: 5px;
+    background-color: #1F304C;
+    color: #F4F2F7;
     padding: 12px 20px;
-    background-color: #afafaf;
     margin-bottom: 24px;
-    color: black;
+    .css-yw020d-MuiAccordionSummary-expandIconWrapper{
+      color: #F4F2F7;
+    }
 `
 
-export default function ControlledAccordions() {
+export default function ControlledAccordions({description}) {
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const productDescription = description.productDescription
+  const aboutMe = description.aboutMe
+  const brandDescription = description.brandDescription
 
   return (
     <div>
@@ -44,7 +51,7 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Description>
-            <a href="https://www.asos.com/men/jackets-coats/cat/?cid=3606"><strong>Jackets & Coats</strong></a> by <a href="https://www.asos.com/men/a-to-z-of-brands/only-sons/cat/?cid=19963"><strong>Only & Sons</strong></a><br/><ul><li>Jacket upgrade: check</li><li>Spread collar</li><li>Button placket</li><li>Functional pockets</li><li>Oversized fit</li></ul>
+            <div dangerouslySetInnerHTML={{ __html: productDescription }}></div>
           </Description>
         </AccordionDetails>
       </AccordionContainer>
@@ -58,7 +65,7 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Twill: semi-structured fabric with a parallel-rib pattern<br/><br/>Main: 100% Cotton.
+            <div dangerouslySetInnerHTML={{ __html: aboutMe }}></div>
           </Typography>
         </AccordionDetails>
       </AccordionContainer>
@@ -74,7 +81,7 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Machine wash according to instructions on care label
+          {description.careInfo}
           </Typography>
         </AccordionDetails>
       </AccordionContainer>
@@ -88,7 +95,7 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Quality craftsmanship is at the forefront of Danish brand <a href="https://www.asos.com/men/a-to-z-of-brands/only-sons/cat/?cid=19963"><strong>Only & Sons</strong></a>, whose signature designs include classic knitwear, relaxed sweats and denim. Using a range of high quality fabrics, theirs is a seamlessly crafted collection for laid-back style.
+            <div dangerouslySetInnerHTML={{ __html: brandDescription }}></div>
           </Typography>
         </AccordionDetails>
       </AccordionContainer>
