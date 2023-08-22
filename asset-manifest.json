@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/e-commere/static/js/main.a728bc47.chunk.js",
-    "main.js.map": "/e-commere/static/js/main.a728bc47.chunk.js.map",
+    "main.js": "/e-commere/static/js/main.f25ab90f.chunk.js",
+    "main.js.map": "/e-commere/static/js/main.f25ab90f.chunk.js.map",
     "runtime-main.js": "/e-commere/static/js/runtime-main.a3c92fab.js",
     "runtime-main.js.map": "/e-commere/static/js/runtime-main.a3c92fab.js.map",
     "static/js/2.0453ddcf.chunk.js": "/e-commere/static/js/2.0453ddcf.chunk.js",
     "static/js/2.0453ddcf.chunk.js.map": "/e-commere/static/js/2.0453ddcf.chunk.js.map",
     "index.html": "/e-commere/index.html",
     "static/js/2.0453ddcf.chunk.js.LICENSE.txt": "/e-commere/static/js/2.0453ddcf.chunk.js.LICENSE.txt",
-    "static/js/main.a728bc47.chunk.js.LICENSE.txt": "/e-commere/static/js/main.a728bc47.chunk.js.LICENSE.txt",
+    "static/js/main.f25ab90f.chunk.js.LICENSE.txt": "/e-commere/static/js/main.f25ab90f.chunk.js.LICENSE.txt",
     "static/media/colombiaLogo.8ee7b4d1.png": "/e-commere/static/media/colombiaLogo.8ee7b4d1.png",
     "static/media/french.f38b9224.png": "/e-commere/static/media/french.f38b9224.png",
     "static/media/jackAndJones.58f23e44.png": "/e-commere/static/media/jackAndJones.58f23e44.png",
@@ -21,6 +21,6 @@
   "entrypoints": [
     "static/js/runtime-main.a3c92fab.js",
     "static/js/2.0453ddcf.chunk.js",
-    "static/js/main.a728bc47.chunk.js"
+    "static/js/main.f25ab90f.chunk.js"
   ]
 }
