@@ -8,6 +8,7 @@ import Products from '../components/Products'
 import Slider from '../components/Slider'
 import styled from 'styled-components'
 import useProductBySearch from '../hooks/useProductBySearch'
+import {  mobile } from '../responsive'
 
 const Header = styled.div`
   font-weight: bold;
@@ -24,7 +25,14 @@ const Divider = styled.div`
   display:flex;
   justify-content: center;
   border-radius: 5px;
+  ${mobile({margin: "24px 60px"})}
 `
+const H1 = styled.h1`
+  fontSize: 48px;
+  textAlign: center;
+  ${mobile({fontSize: "36"})}
+`
+
 export default function Home() {
 
   const data =  useProductBySearch('wear')
@@ -40,9 +48,7 @@ export default function Home() {
         <Categories page={"home"}/>
         <Divider>
           <Header>
-            <h1 style={{fontSize: "48px",textAlign:"center",}}>
-              Top Picks
-            </h1>
+            <H1>Top Picks</H1>
           </Header>
         </Divider>
         <Products items={topProducts} page={"home"}/>

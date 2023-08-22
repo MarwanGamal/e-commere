@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { categories } from '../data'
 import Product from './Product'
+import {mobile} from '../responsive'
 
 const Container = styled.div`
     padding: 48px 120px;
@@ -28,7 +29,7 @@ const Container = styled.div`
       grid-template-columns: repeat(6,280px);
     }
     justify-items: center;
-    
+    ${mobile({padding:"24px"})}
 `
 
 export default function Products({page, items}) {

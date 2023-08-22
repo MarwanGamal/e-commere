@@ -11,8 +11,8 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({})}
     ${tablet({height: "60vh"})}
+    ${mobile({height: "90vh"})}
 `
 const Arrow = styled.div`
     width: 50px;
@@ -31,12 +31,14 @@ const Arrow = styled.div`
     cursor: pointer;
     opacity: 0.5;
     z-index: 2;
+    ${mobile({display:"none"})}
 `
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
     transform: translateX(${props=> props.slideIndex * -100}vw);
     transition: transform .85s ease-in-out;
+    ${mobile({flexDirection:"column", transform: "translateX(0)"})}
 `
 const Slide = styled.div`
     display: flex;
@@ -47,6 +49,8 @@ const Slide = styled.div`
     background-repeat: no-repeat;
     background-image: url(${props=> props.bg});
     background-position: center;
+    ${tablet({backgroundPosition: "right"})}
+    ${mobile({backgroundPosition: "center",backgroundSize: "100%",height: "33%"})}
     
 `
 const ImageContainer = styled.div`
@@ -66,16 +70,18 @@ const InfoContainer = styled.div`
     margin: 280px 240px;
     max-width: 34%;
     margin-right: 20px;
-    ${mobile({maxWidth: "65%"})}
-    ${tablet({maxWidth: "65%",margin:" 60px 240px"})}
+    text-algin: center;
     ${laptop({maxWidth: "50%", margin:"180px 120px"})}
+    ${tablet({maxWidth: "100%",justifyContent:"center", alignItems:"center"})}
+    ${mobile({maxWidth: "65%", margin:"0"})}
 `
 const Title = styled.h1`
     text-transform: uppercase;
     color: #1F304D;
     font-size: 70px;
     -webkit-text-stroke: 1.5px #DDB698;
-    ${tablet({fontSize: "40px"})}
+    ${tablet({fontSize: "40px",maxWidth: "85%", margin:"0 auto"})}
+    ${mobile({fontSize: "20px", margin:"48px 12px 12px 12px", WebkitTextStroke:" .3px #1F304D", color: "#DDB698"})}
 `
 const Description = styled.p`
     text-transform: uppercase;
@@ -85,6 +91,7 @@ const Description = styled.p`
     letter-spacing: 3px;
     
     ${tablet({fontSize: "18px"})}
+    ${mobile({margin: "0"})}
 `
 const Button = styled(Link)`
     padding: 15px 0;
@@ -99,8 +106,11 @@ const Button = styled(Link)`
     text-decoration: none;
     // border: 2px solid black;
     color: #FAF7F5;
-    
     border-radius: 10px; 
+    box-shadow: -3px 3px 10px 3px rgba(0, 0, 0, 0.5); 
+    box-shadow: inset -3px 3px 10px 2px rgba(255, 255, 255, 0.15); 
+    ${tablet({fontSize: "24px", maxWidth: "50%", margin:"0 auto"})}
+    ${mobile({fontSize: "16px", maxWidth: "50%", margin:"12px", padding:"8px",borderRadius: "5px"})}
 `
 
 export default function Slider() {

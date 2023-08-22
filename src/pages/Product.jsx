@@ -19,8 +19,8 @@ const Wrapper = styled.div`
     padding: 60px 120px;
     display: flex;
     align-items: start;
-    ${mobile({padding:"10px", flexDirection:"column"})}
     ${tablet({padding:"20px"})}
+    ${mobile({padding:"12px", flexDirection:"column"})}
 `
 const ImagesContainer = styled.div`
     display: flex;
@@ -30,20 +30,20 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    ${tablet({height:"50vh"})}
-    ${mobile({height:"40vh"})}
     object-fit: cover;
 `
 const ImageList = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
+    ${mobile({justifyContent: "center"})}
 `
 const ImgContainer = styled.div`
     width: 314px;
     height: 400px;
     margin-bottom: 24px;
     margin-right: 24px;
+    ${mobile({margin: "4px", width:"190px", height: "242px"})}
 `
 
 const InfoContainer = styled.div`
@@ -56,24 +56,28 @@ const ProductName = styled.div`
     font-size: 40px;
     color: #26201A;
     margin-bottom: 12px;
+    ${mobile({fontSize:"32px"})}
 `
 
 const Price = styled.span`
     font-weight: 100;
     font-size: 24px;
+    font-weight: bold;
     color: #DDB698;
 `
 const ProductInfo = styled.div`
     margin-top: 24px ;
+    ${mobile({marginTop: "12px"})}
 `
 const Info = styled.p`
     font-size: 18px;
     margin: 12px 0px;
+    ${mobile({margin: "6px 0"})}
 `
 
 const FilterContainer = styled.div`
     margin-top: 36px;
-    ${mobile({width:"100%",margin:"20px 0"})}
+    ${mobile({width:"100%",margin:"12px 0 0"})}
 `
 const Filter = styled.div`
     display: flex;
@@ -83,6 +87,7 @@ const FilterTitle = styled.h2`
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 24px;
+    ${mobile({marginBottom: "12px"})}
 `
 const FilterColor = styled.div`
     width: 48px;
@@ -91,6 +96,7 @@ const FilterColor = styled.div`
     background-color: ${props => props.color};
     margin-right: 24px;
     cursor: pointer;
+    ${mobile({marginRight: "12px"})}
 `
 
 
@@ -105,13 +111,15 @@ const FilterSize = styled.div`
     margin-right: 24px;
     cursor: pointer;
     border: 2px solid #CCCCCC;
+    ${mobile({margin: "6px 12px 0 0"})}
 `
 const AddContainer = styled.div`
     margin: 36px 0;
     display: flex;
     align-items: center;
-    ${tablet({width:"100%"})}
-    ${mobile({width:"100%"})}
+    // flex-wrap: wrap;
+    ${tablet({flexWrap:"wrap", alignItems: "start"})}
+    ${mobile({ flexWrap:"wrap",alignItems: "start"})}
 `
 const AmountContainer = styled.div`
     display: flex;
@@ -122,6 +130,7 @@ const AmountContainer = styled.div`
     font-weight: 700;
     border: 2px solid #1F304C;
     padding: 10px;
+    ${mobile({width:"100%"})}
 `
 const Amount = styled.span`
     font-size: 24px;
@@ -131,10 +140,19 @@ const Amount = styled.span`
     align-items: center;
     justify-content: center;
 `
+
+const FlexContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ${tablet({margin:"24px 0 0", width: "100%"})}
+    ${mobile({margin:"24px 0 0", width: "100%"})}
+`
+
 const Button = styled.button`
     padding: 10px;
     font-size: 24px;
-    margin-left: 24px;
+    margin: 0 24px;
     width: 560px;
     color: #1F304C;
     background-color: #DDB698;
@@ -146,6 +164,8 @@ const Button = styled.button`
     &:hover{
         background-color: #f8f4f4;
     }
+    ${tablet({margin:"0 12px 0 0", width: "80%"})}
+    ${mobile({margin:"0 12px 0 0", width: "80%"})}
 `
 const ShippingDetails = styled.div`
     font-size: 18px;
@@ -160,6 +180,7 @@ const ProductDetails = styled.div`
 `
 const PeopleAlsoLiked = styled.div`
     margin-top: 72px;
+    ${mobile({marginTop:"24px"})}
 `
 const Header = styled.div`
     font-weight: bold;
@@ -169,6 +190,7 @@ const Header = styled.div`
     margin-bottom: -5px;
     border-radius: 5px;
     padding-bottom: 26.5px;
+    ${mobile({fontSize:"32px"})}
 `
 const Divider = styled.div`
     border-bottom: 5px solid #DBDADA;  
@@ -176,6 +198,7 @@ const Divider = styled.div`
     display:flex;
     justify-content: center;
     border-radius: 5px;
+    ${mobile({margin:"12px 24px"})}
 `
 
 const Product = () => {
@@ -239,8 +262,10 @@ const Product = () => {
                             <Amount>1</Amount>
                             <Add style={{color:"497DAA"}}/>
                         </AmountContainer>
-                        <Button>ADD TO CART</Button>
-                        <FavoriteBorderOutlined style={{color: "DDB698",fontSize: '26px',marginLeft:"24px", padding:"10px", border:"2px solid #1F304C", borderRadius:"5px"}} />
+                        <FlexContainer>
+                            <Button>ADD TO CART</Button>
+                            <FavoriteBorderOutlined style={{color: "DDB698",fontSize: '26px', padding:"10px", border:"2px solid #1F304C", borderRadius:"5px"}} />
+                        </FlexContainer>
                     </AddContainer>
                     <ShippingDetails>
                         <LocalShippingOutlined style={{color: "#afafaf",fontSize: '26px',marginRight:"24px"}}/>

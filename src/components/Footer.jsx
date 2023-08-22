@@ -6,13 +6,14 @@ const Container = styled.div`
     display: flex;
     background-color: #1F304C;
     color: white;
-    ${mobile({flexDirection: "column"})}
+    ${mobile({})}
 `
 const Left = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: 42px 120px 0 120px;
+    ${mobile({display:"none"})}
 `
 const Logo = styled.h1`
     color: #DDB698;
@@ -20,11 +21,12 @@ const Logo = styled.h1`
 
 const Desc = styled.p`
     margin: 20px 0;
-
+    ${mobile({display:"none"})}
 `
 
 const SocialContainer = styled.div`
     display: flex;
+    ${mobile({justifyContent:"center"})}
 `
 
 const SocialIcon = styled.div`
@@ -37,6 +39,7 @@ const SocialIcon = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 20px;
+    ${mobile({width:"32px", height:"32px", margin:"12px"})}
 `
 
 const Center = styled.div`
@@ -48,6 +51,7 @@ const Center = styled.div`
 const Title = styled.h3`
     margin-bottom: 30px;
     color: #DDB698;
+    ${mobile({margin:"12px 0"})}
 `
 
 const List = styled.ul`
@@ -67,17 +71,21 @@ const ListItem = styled.li`
 const Right = styled.div`
     flex: 1;
     padding: 20px;
-    ${mobile({backgroundColor: "#fff8f8"})}
+    ${mobile({textAlign: "center"})}
 `
 
 const ContactItem = styled.div`
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-
+    ${mobile({justifyContent: "center"})}
 `
 const Payment = styled.img`
     width: 50%;
+`
+const MobileView = styled.div`
+    display: none;
+    ${mobile({display:"block"})}
 `
 
 const Footer = () => {
@@ -118,6 +126,9 @@ const Footer = () => {
             </List>
         </Center>
         <Right>
+            <MobileView>
+                <Logo>OUTLET</Logo>
+            </MobileView>
             <Title>Contact</Title>
             <ContactItem>
                 <LocationOn style={{marginRight: "10px"}}/>
@@ -132,6 +143,22 @@ const Footer = () => {
                 contact@lama.dev
             </ContactItem>
             <Payment src="http://i.ibb.co/Qfvn4z6/payment.png" />
+            <MobileView>
+                <SocialContainer>
+                    <SocialIcon color="3B5999">
+                        <Facebook/>
+                    </SocialIcon>
+                    <SocialIcon color="E4405f">
+                        <Instagram />
+                    </SocialIcon>
+                    <SocialIcon color="55ACEE">
+                        <Twitter />
+                    </SocialIcon>
+                    <SocialIcon color="E60023">    
+                        <Pinterest />
+                    </SocialIcon>
+                </SocialContainer>
+            </MobileView>
         </Right>
     </Container>
   )

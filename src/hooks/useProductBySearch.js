@@ -12,8 +12,8 @@ export default function useProductBySearch(query){
           url: 'https://asos-com1.p.rapidapi.com/products/search',
           params: {
             q: query,
-            country_code: 'GB',
-            currency: 'GBP',
+            // country_code: 'GB',
+            // currency: 'GBP',
             filters: 'brand=15059,224,14159,15003,14441,12461&floor=1001'
           },
           headers: {
