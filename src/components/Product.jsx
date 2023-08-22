@@ -128,7 +128,7 @@ export default function Product({item, page}) {
                         <ShoppingCartOutlined />
                     </Icon>
                     <SearchIcon 
-                        onClick={() =>{ if(window.location.href === 'http://localhost:3000/e-commere#/product') window.location.reload()}} 
+                        onClick={() =>{ if(window.location.href === 'https://marwangamal.github.io/e-commere/#/product') window.location.reload()}} 
                         to={'/product'}
                         state={{url: item.url}}
                     >

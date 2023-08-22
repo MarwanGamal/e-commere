@@ -13,7 +13,7 @@ const AccordionTitle = styled(Typography)`
     }
 `
 const Description = styled(Typography)`
-
+    
 `
 const AccordionContainer = styled(Accordion)`
     border-radius: 5px;
